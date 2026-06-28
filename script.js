@@ -13,6 +13,7 @@ links.forEach((link) => {
     }
 
     event.preventDefault();
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth", block: "start" });
   });
 });
